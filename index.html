@@ -22,27 +22,29 @@
    Rooh THEME COLORS
    ======================== */
 :root {
-    /* Primary (Blue ki jagah ab Gold ayega) */
-    --primary: #D4AF37;     /* Luxury Gold - Buttons aur Headings k liye */
+    /* --- PREMIUM GOLD & BLACK THEME --- */
 
-    /* Accent (Red ki jagah ab Bright Gold/White ayega) */
-    --accent: #ffffff;      /* White - Text parhne k liye */
+    /* 1. Gold (Buttons & Headings k liye) */
+    --primary: rgb(195, 146, 22);      
 
-    /* Healing (Green ki jagah ab Dark Grey ayega Card BG k liye) */
-    --healing: #1a1a1a;     /* Dark Grey - Cards ya Sections k background k liye */
+    /* 2. White (Small Text k liye) */
+    --accent: #FFFFFF;       
 
-    /* Dark (Navy ki jagah ab Pure Black) */
-    --dark: #000000;        /* Pitch Black - Main Background k liye */
+    /* 3. Dark Grey (Cards k background k liye taake Black pe nazar ayein) */
+    --healing: #1A1A1A;      
 
-    /* Light (Blue-Grey ki jagah ab thora sa soft Black) */
-    --light: #2c2c2c;       /* Charcoal - Footer ya Borders k liye */
+    /* 4. Pitch Black (Main Background) */
+    --dark: #000000;         
+
+    /* 5. Soft Black (Footer ya borders k liye) */
+    --light: #222222;        
 
     --font: 'Poppins', sans-serif;
 }
 
 body {
     font-family: var(--font);
-    background-color: var(--light);
+    background-color: var(--dark);
     overflow-x: hidden;
 }
 
@@ -53,8 +55,7 @@ body {
     background: rgba(0, 0, 0, 0.95);
     backdrop-filter: blur(10px);
     padding: 15px 0;
-     color: white;
-    box-shadow: 0 4px 20px var(--primary);
+     color: white; 
 }
 
 .logo-img {
@@ -101,7 +102,7 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, #ffffff 0%, #eef2f3 100%);
+    background: linear-gradient(135deg, #000000 0%, #000000 100%);
     overflow: hidden;
     position: relative;
 }
@@ -126,7 +127,7 @@ body {
 .hero-text h1 {
     font-size: 3.5rem;
     font-weight: 800;
-    color: var(--dark);
+    color: var(--accent);
     line-height: 1.2;
     margin-bottom: 20px;
 }
@@ -134,7 +135,7 @@ body {
 .highlight { color: var(--primary); position: relative; display: inline-block; }
 .highlight::after {
     content: ''; position: absolute; bottom: 8px; left: 0; width: 100%; height: 12px;
-    background: rgba(25, 135, 84, 0.2); z-index: -1; border-radius: 5px;
+    background: rgba(193, 170, 23, 0.285); z-index: -1; border-radius: 5px;
 }
 
 .hero-text p { font-size: 1.1rem; color: #555; margin-bottom: 35px; max-width: 500px; line-height: 1.6; }
@@ -142,13 +143,13 @@ body {
 /* Buttons */
 .hero-btns { display: flex; gap: 15px; }
 .btn-primary-hero {
-    background: var(--primary); color: white; padding: 14px 35px; border-radius: 50px; font-weight: 600; text-decoration: none; transition: 0.3s; box-shadow: 0 10px 20px rgba(13, 110, 253, 0.3);
+    background: var(--primary); color: white; padding: 14px 35px; border-radius: 50px; font-weight: 600; text-decoration: none; transition: 0.3s; box-shadow: 0 10px 20px rgba(195, 146, 22, 0.345);
 }
 .btn-secondary-hero {
-    background: transparent; color: var(--dark); border: 2px solid var(--dark); padding: 12px 30px; border-radius: 50px; font-weight: 600; text-decoration: none; transition: 0.3s; display: flex; align-items: center; gap: 8px;
+    background: transparent; color: var(--accent); border: 2px solid var(--dark); padding: 12px 30px; border-radius: 50px; font-weight: 600; text-decoration: none; transition: 0.3s; display: flex; align-items: center; gap: 8px;
 }
 .btn-primary-hero:hover { background: var(--dark); transform: translateY(-3px); color: white; }
-.btn-secondary-hero:hover { background: var(--dark); color: white; }
+.btn-secondary-hero:hover { background: var(--accent); color: rgb(0, 0, 0); }
 
 /* Badges */
 .trust-badges { display: flex; align-items: center; gap: 30px; }
@@ -368,7 +369,7 @@ body {
    ======================== */
 .drug-awareness-section {
     padding: 0 0 80px 0;
-    background-color: var(--light);
+    background-color: var(--dark);
 }
 
 /* -----------------------------
@@ -521,7 +522,7 @@ body {
     /* Back Side (Info - Rotated) */
     .card-back {
         background-color: var(--secondary); /* Green BG */
-        color: rgb(0, 0, 0);
+        color: rgb(252, 252, 252);
         transform: rotateY(180deg); /* Pehle se ulta rakho */
         display: flex;
         flex-direction: column;
@@ -689,7 +690,7 @@ body {
    ======================== */
 .life-at-sukoon-section {
     padding: 80px 0;
-    background-color: #fcfcfc; /* Very Light Grey BG */
+    background-color: #000000; /* Very Light Grey BG */
 }
 
 /* --- CARD STYLING --- */
@@ -786,131 +787,98 @@ body {
 </style>
 <!--CEoooooooo-->
 <style>
-    /* ========================
-   CEO SECTION (Right Pic, Left Text)
-   ======================== */
-.ceo-section {
-    padding: 100px 0;
-    background-color: #fff;
+    .team-section {
+    padding: 80px 0;
+    background-color: #ffffff;  
+}
+ 
+.team-member {
+    text-align: center;
+    padding: 20px;
+    background: #fff; 
+    border-radius: 20px; 
+    transition: transform 0.3s ease;
+}
+ 
+@media (max-width: 768px) {
+    .team-member {
+        margin-bottom: 30px;
+    }
+}
+ 
+.img-wrapper {
+    width: 100%; 
+    height: 500px; 
     overflow: hidden;
+    border-radius: 15px;
+    margin-bottom: 20px; 
 }
 
-/* --- TEXT CONTENT --- */
-.ceo-content {
-    padding-right: 30px;
-}
-
-/* Quote Style */
-.quote-box {
-    position: relative;
-    padding-left: 30px;
-    border-left: 4px solid var(--primary); /* Blue Line */
-}
-
-.quote-icon {
-    font-size: 30px;
-    color: var(--accent); /* Red Quote */
-    margin-bottom: 15px;
-    display: block;
-    opacity: 0.8;
-}
-
-.ceo-text {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #555;
-    font-style: italic;
-}
-
-/* Signature Area */
-.ceo-name {
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: var(--dark);
-    margin-bottom: 5px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.ceo-role {
-    font-size: 1rem;
-    color: var(--primary);
-    font-weight: 600;
-    text-transform: uppercase;
-    display: block;
-}
-
-.social-link {
-    text-decoration: none;
-    color: #555;
-    font-weight: 500;
-    transition: 0.3s;
-}
-
-.social-link:hover { color: var(--primary); }
-
-/* --- IMAGE STYLING --- */
-.ceo-img-wrapper {
-    position: relative;
-    display: inline-block;
-    z-index: 2;
-}
-
-.ceo-img {
-    width: 100%;
-    max-width: 300px; /* Image bohot bari na ho */
-    border-radius: 20px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-    position: relative;
-    z-index: 2;
-    border: 8px solid white;
-}
-
-/* Background Shape behind Image */
-.shape-bg {
-    position: absolute;
-    top: -30px;
-    right: -30px;
+.member-img {
     width: 100%;
     height: 100%;
-    border: 4px solid var(--primary);
-    border-radius: 20px;
-    z-index: 1;
-    opacity: 0.3;
+    object-fit: cover;  
+    display: block; 
+}
+ 
+.member-info .name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 5px;
 }
 
-/* ========================
-   MOBILE RESPONSIVE
-   ======================== */
-@media (max-width: 991px) {
-    .ceo-section {
-        padding: 60px 0;
-        text-align: center;
-    }
+.member-info .role {
+    font-size: 1rem;
+    color: var(--primary);  
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 15px;
+}
 
-    .ceo-content {
-        padding-right: 0;
-        margin-bottom: 40px;
-    }
+/* --- SOCIAL ICONS --- */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
 
-    /* Quote Center on Mobile */
-    .quote-box {
-        padding-left: 0;
-        border-left: none;
-        border-top: 3px solid var(--primary);
-        padding-top: 20px;
-    }
+.icon-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;  
+    background-color: #f4f4f4;  
+    color: var(--dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+ 
+.icon-btn:hover {
+    color: white;
+    transform: translateY(-3px);
+}
 
-    .ceo-img {
-        max-width: 300px; /* Mobile pe choti image */
+.instagram:hover { background: #E1306C; }
+.facebook:hover { background: #1877F2; }
+.youtube:hover { background: #FF0000; }
+.tiktok:hover { background: #000000; }
+ 
+@media (max-width: 768px) {
+    .img-wrapper {
+        height: 350px;  
     }
-
-    .shape-bg {
-        top: 15px;
-        right: -10px;
-        left: 10px;
+    
+    .member-info .name {
+        font-size: 1.5rem;
     }
 }
+ 
 </style>
 <!--viedooooooo-->
 <style>
@@ -1275,7 +1243,7 @@ h5.text-white::after {
                 <!-- Trust Badges -->
                 <div class="trust-badges mt-5">
                     <div class="badge-item">
-                        <i class="fa-solid fa-user-doctor"></i>
+                        <i class="fa-solid fa-user-doctor" style="color: var(--primary);"></i>
                         <div>
                             <h5>Expert Doctors</h5>
                             <small>24/7 Available</small>
@@ -1283,7 +1251,7 @@ h5.text-white::after {
                     </div>
                     <div class="divider"></div>
                     <div class="badge-item">
-                        <i class="fa-solid fa-shield-heart"></i>
+                        <i class="fa-solid fa-shield-heart" style="color: var(--primary);"></i>
                         <div>
                             <h5>100% Private</h5>
                             <small>Confidential Care</small>
@@ -1359,7 +1327,7 @@ h5.text-white::after {
         
         <div class="text-center mb-5 mt-5">
             <span class="section-subtitle">The Reality</span>
-            <h2 class="section-title">Know The Danger</h2> 
+            <h2 class="section-title" style="color: var(--accent);">Know The Danger</h2> 
         </div>
 
         <!-- ROW 1 (Top 5 Drugs) -->
@@ -1663,7 +1631,7 @@ h5.text-white::after {
         <!-- Heading -->
         <div class="text-center mb-5">
             <span class="section-subtitle">Our Environment</span>
-            <h2 class="section-title">Life at ROOH</h2> 
+            <h2 class="section-title" style="color: var(--accent);">Life at ROOH</h2> 
         </div>
 
         <div class="row g-3 justify-content-center">
@@ -1787,50 +1755,54 @@ h5.text-white::after {
 </script>
 
 <!--CEOOOO--> 
-<section class="ceo-section" id="ceo-message">
+<section class="team-section" id="team" data-aos="fade-up">
     <div class="container">
-        <div class="row align-items-center">
-            
-            <!-- LEFT: CEO Message -->
-            <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
-                <div class="ceo-content">
-                    <span class="section-subtitle">Leadership</span>
-                    <h2 class="section-title mb-4">A Message from Our CEO</h2>
-                    
-                    <div class="quote-box">
-                        <i class="fa-solid fa-quote-left quote-icon"></i>
-                        <p class="ceo-text">
-                            "At Rooh Rehabilitation, we believe recovery is more than ending addiction—it’s about creating a new beginning. Our mission is to offer a safe, compassionate, and evidence-based environment where individuals heal mentally, physically, and emotionally. With unwavering support, we guide each person from struggle toward hope and lasting renewal."
-                        </p>
-                    </div>
+        
+        <div class="text-center mb-5">
+            <span class="section-subtitle">Leadership</span>
+            <h2 class="section-title">Meet Our Visionaries</h2>
+             
+        </div>
 
-                    <div class="ceo-signature mt-4">
-                        <h4 class="ceo-name">Psy Ch. Muhammad Tayyab Ahmad Gujjar</h4>
-                        <span class="ceo-role">CEO & Psychologist</span>
+        <div class="row justify-content-center">
+            
+            <div class="col-lg-5 col-md-6 mb-5 mb-lg-0">
+                <div class="team-member" data-aos="fade-up" data-aos-delay="100">
+                    <div class="img-wrapper">
+                        <img src="./Images/c1.png" alt="Founder Name" class="member-img">
+                    </div>
+                    
+                    <div class="member-info">
+                        <h3 class="name">Ch. Muhammad Tayyab Ahmad Gujjar</h3>
+                        <span class="role">Clinical Psychologist</span>
                         
-                        <!-- Social Link (Optional) -->
-                        <div class="mt-3">
-                            <a href="#" class="social-link"><i class="fa-brands fa-linkedin"></i> Connect</a>
+                        <div class="social-icons">
+                           <a href="#"><i class="fa-brands fa-linkedin"></i></a> 
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- RIGHT: CEO Image -->
-            <div class="col-lg-6 text-center" data-aos="fade-left">
-                <div class="ceo-img-wrapper">
-                    <!-- Apni image ka path lagana -->
-                    <img src="./images/ceoooo-removebg-preview.png" style="background: none;" alt=" CEO" class="ceo-img">
+            <div class="col-lg-5 col-md-6">
+                <div class="team-member" data-aos="fade-up" data-aos-delay="200">
+                    <div class="img-wrapper">
+                        <img src="./Images/c-f.png" alt="Co-Founder Name" class="member-img">
+                    </div>
                     
-                    <!-- Decorative Elements -->
-                    <div class="shape-bg"></div>
+                    <div class="member-info">
+                        <h3 class="name">Syed Mudassar Abbas Bukhari</h3>
+                        <span class="role">AClinical Psychologist</span>
+                        
+                        <div class="social-icons">
+                             <a href="#"><i class="fa-brands fa-linkedin"></i></a> 
+                        </div>
+                    </div>
                 </div>
             </div>
 
         </div>
     </div>
 </section>
-
 <!--footerrrrrrrrr-->
 <footer class="footer-section">
     <div class="container">
