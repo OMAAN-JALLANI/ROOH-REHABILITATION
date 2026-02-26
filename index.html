@@ -831,153 +831,116 @@ body {
 </style>
 <!--viedooooooo-->
 <style>
-    
-
-/* ========================
-   SCROLL VIDEO ANIMATION
-   ======================== */
-.video-scroll-section {
-    /* Section ki height bohot lambi rakhi hai taake scroll karne ka time mile */
-    height: 300vh; 
-    position: relative;
-    background-color: var(--light); /* Cream BG */
+    /* Main Section */
+.mission-section {
+    padding: 80px 20px;
+    background-color: var(--dark); /* Pitch Black background */
+    color: var(--accent); /* White text */
 }
 
-/* Sticky Container (Jo screen par ruka rahega) */
-.sticky-wrapper {
-    position: sticky;
-    top: 0;
-    height: 100vh; /* Full screen height */
+/* Flexbox Layout: Left Video, Right Text */
+.mission-section .content-container {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-
-/* Main Content Container */
-.content-container {
-    width: 90%;
+    align-items: center; /* Dono ko vertically center karega */
+    justify-content: space-between;
+    gap: 50px; /* Video aur text k darmiyan faasla */
     max-width: 1200px;
-    height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    transition: all 0.8s ease-in-out; /* Smooth Movement */
+    margin: 0 auto; /* Center the container */
 }
 
-/* --- VIDEO BOX --- */
-.video-box {
-    width: 100%; /* Shuru mein Full Width */
-    height: 100%;
-    border-radius: 30px;
-    overflow: hidden;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
-    position: relative;
-    z-index: 2;
-    transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1); /* Smooth Animation */
-}
-
-.main-video {
+/* Left: Video Box (50% Space) */
+.mission-section .video-box {
+    flex: 1;
     width: 100%;
-    height: 100%;
+    border-radius: 15px; /* Thora gol corner */
+    overflow: hidden;
+    border: 2px solid var(--light); /* Halka sa border */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+.mission-section .main-video {
+    width: 100%;
+    height: 500px;
+    display: block; /* Extra space remove karne k liye */
     object-fit: cover;
 }
 
-/* --- TEXT BOX (Hidden Initially) --- */
-.text-box {
-    width: 0%; /* Shuru mein gayab */
-    opacity: 0;
-    padding-left: 0;
+/* Right: Text Box (50% Space) */
+.mission-section .text-box {
+    flex: 1;
+}
+
+.mission-section .sub-heading {
+    color: var(--primary); /* Gold color */
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.mission-section h2 {
+    font-size: 38px;
+    margin-bottom: 20px;
+    color: var(--accent);
+}
+
+.mission-section p {
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+    color: #cccccc; /* Thora dim white taake aankhon pe na lagay */
+}
+
+/* Features List (Ticks) */
+.mission-section .features-list {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    overflow: hidden;
-    transition: all 0.8s ease-in-out;
-    white-space: nowrap; /* Text tootay na jab chupa ho */
+    gap: 15px;
 }
 
-.sub-heading {
-    color: var(--primary);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
+.mission-section .f-item {
+    font-size: 15px;
+    font-weight: 400;
 }
 
-.text-box h2 {
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: var(--dark);
-    margin-bottom: 20px;
+.mission-section .f-item i {
+    color: var(--primary); /* Ticks ko Gold kar diya */
+    margin-right: 12px;
+    font-size: 20px; 
 }
 
-.text-box p {
-    color: #555;
-    margin-bottom: 20px;
-    white-space: normal; /* Wapis normal */
-    line-height: 1.6;
+.features-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Har point k darmiyan fasla */
 }
 
-.features-list .f-item {
-    margin-bottom: 10px;
-    font-weight: 600;
-    color: var(--dark);
+.f-item {
+    display: flex;
+    align-items: flex-start; /* Tick ko hamesha pehli line k sath upar rakhe ga */
+    gap: 12px; /* Tick aur Text k darmiyan fasla */
 }
 
-.features-list i {
-    color: var(--primary);
-    margin-right: 10px;
+.f-item i {
+    flex-shrink: 0; /* YE SAB SE ZAROORI HAI: Taake text lamba ho to tick chota/dab na jaye */
+    margin-top: 4px; /* Tick ko text k bilkul center mein lane k liye thora sa adjust kiya */
+    color: var(--primary); /* Tumhara gold color */
 }
 
-
-/* --- ANIMATION ACTIVE STATE (JS add karega) --- */
-.video-scroll-section.active .video-box {
-    width: 50%; /* Video आधी ho jaye */
-    transform: translateX(0);
-}
-
-.video-scroll-section.active .text-box {
-    width: 50%; /* Text aadha hissa le le */
-    opacity: 1;
-    padding-left: 50px; /* Gap */
-}
-
-
-/* ========================
-   MOBILE RESPONSIVE (Disable Animation)
-   ======================== */
-@media (max-width: 991px) {
-    .video-scroll-section {
-        height: auto; /* Scroll khatam */
-        padding: 50px 0;
+/* ========================================= */
+/* MOBILE RESPONSIVE (Stack on small screens) */
+/* ========================================= */
+@media (max-width: 900px) {
+    .mission-section .content-container {
+        flex-direction: column; /* Mobile par upar neechay kar dega */
+        text-align: center; /* Mobile par text center acha lagta hai */
+        gap: 40px;
     }
 
-    .sticky-wrapper {
-        position: relative;
-        height: auto;
-        top: auto;
-    }
-
-    .content-container {
-        flex-direction: column;
-        height: auto;
-        width: 100%;
-        padding: 0 20px;
-    }
-
-    /* Mobile pe seedha dikhao */
-    .video-box {
-        width: 100% !important;
-        height: 300px;
-        margin-bottom: 30px;
-    }
-
-    .text-box {
-        width: 100% !important;
-        opacity: 1 !important;
-        padding-left: 0 !important;
-        white-space: normal;
+    .mission-section .features-list {
+        align-items: center; /* Ticks ko bhi center kar dega */
     }
 }
 </style>
@@ -1157,12 +1120,15 @@ h5.text-white::after {
             <!-- Links -->
             <div class="collapse navbar-collapse justify-content-end" id="sukoonMenu">
                 <ul class="navbar-nav gap-4 align-items-center">
-                    <li class="nav-item"><a href="#" class="nav-link  ">Home</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">About Us</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Services</a></li>
-                    <li class="nav-item"><a href="#doctors" class="nav-link">Our Team</a></li>
+                    <li class="nav-item"><a href="./components/about.html" class="nav-link  ">About Us</a></li>
+                    <li class="nav-item"><a href="./components/services.html" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="./components/Team.html" class="nav-link">Our Team</a></li>
+                    <li class="nav-item"><a href="./components/Treat.html" class="nav-link">Our Treatment</a></li>
+                    <li class="nav-item"><a href="./components/Gallary.html" class="nav-link">Gallary</a></li>
                     <li class="nav-item" id="book">
-                        <a href="#contact" class="btn-sukoon">Book Appointment</a>
+                        
+                        <button id="myBookBtn" class="btn-sukoon">Book appointment</button>
+
                     </li>
                 </ul>
             </div>
@@ -1186,15 +1152,17 @@ h5.text-white::after {
    Rooh Rehabilitation Center offers specialized, evidence-based rehabilitation services designed to support clients in achieving sustainable recovery and comprehensive mental health restoration.
 </p>
                 <div class="hero-btns">
-                    <a href="#contact" class="btn-primary-hero">Get Help Now <i class="fa-solid fa-arrow-right ms-2"></i></a>
-                    <a href="#services" class="btn-secondary-hero"><i class="fa-solid fa-circle-play"></i> How We Work</a>
+                   <a id="heroBookBtn" class="btn-primary-hero">
+    Get Help Now <i class="fa-solid fa-arrow-right ms-2"></i>
+</a>
+                    <a href="#mission-video" class="btn-secondary-hero"><i class="fa-solid fa-circle-play"></i> How We Work</a>
                 </div>
 
                 <div class="trust-badges mt-5">
                     <div class="badge-item">
                         <i class="fa-solid fa-user-doctor" style="color: var(--primary);"></i>
                         <div>
-                            <h5>Expert Doctors</h5>
+                            <h5>Expert Dean</h5>
                             <small>24/7 Available</small>
                         </div>
                     </div>
@@ -1521,47 +1489,31 @@ h5.text-white::after {
     });
 </script>
 <!--videoooooooooo-->
-<section class="video-scroll-section" id="video-scroll">
-    <div class="sticky-wrapper">
-            <div class="content-container">
-            
-            <div class="video-box">
-                <video autoplay muted loop playsinline class="main-video">
-                    <source src="./pics/jour.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-
-            <div class="text-box">
-                <span class="sub-heading">Our Mission</span>
-                <h2>Path to Recoveryy</h2>
-                <p>At Rooh Rehabilitation, we go beyond physical healing—we rebuild hope. Our holistic approach empowers individuals to overcome challenges, grow stronger, and embrace a more meaningful life.</p>
-                
-                <div class="features-list">
-                    <div class="f-item"><i class="fa-solid fa-check"></i> 24/7 Professional Monitoring</div>
-                    <div class="f-item"><i class="fa-solid fa-check"></i> Experienced Medical Specialists</div>
-                    <div class="f-item"><i class="fa-solid fa-check"></i> Dedicated Family Counseling</div>
-                </div> 
-            </div>
-
+ <section class="mission-section" id="mission-video">
+    <div class="content-container">
+        
+        <div class="video-box">
+            <video autoplay  controls muted loop playsinline class="main-video">
+                <source src="./pics/journy.webm" type="video/webm">
+                Your browser does not support the video tag.
+            </video>
         </div>
-    </div>
-</section><script>
-    // Scroll Video Animation Logic
-    window.addEventListener('scroll', function() {
-        const section = document.querySelector('.video-scroll-section');
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
-        const scrollPosition = window.scrollY;
 
-        // Jab user section ke 1/3 hissay tak scroll kar le
-        if (scrollPosition > sectionTop + (sectionHeight / 2.5)) {
-            section.classList.add('active');
-        } else {
-            section.classList.remove('active');
-        }
-    });
-</script>
+        <div class="text-box">
+            <span class="sub-heading">Our Mission</span>
+            <h2>Path to Recovery</h2>
+            <p>At Rooh Rehabilitation, we go beyond physical healing—we rebuild hope. Our holistic approach empowers individuals to overcome challenges, grow stronger, and embrace a more meaningful life.</p>
+            
+            <div class="features-list">
+                <div class="f-item"><i class="fa-solid fa-check"></i>To provide comprehensive, evidence-based addiction and mental health treatment.</div>
+                <div class="f-item"><i class="fa-solid fa-check"></i>To promote recovery through compassion, structure, and therapeutic excellence.</div>
+                <div class="f-item"><i class="fa-solid fa-check"></i>To support families in understanding addiction as a treatable condition.</div>
+                <div class="f-item"><i class="fa-solid fa-check"></i>To reduce stigma associated with mental health and substance use disorders in our community.</div>
+            </div> 
+        </div>
+
+    </div>
+</section>
 
 <!--lifeeeeeeeeee--> 
 <section class="life-at-sukoon-section" id="life-at-sukoon">
@@ -1580,9 +1532,9 @@ h5.text-white::after {
             <!-- 1. Hospital / Location -->
             <div class="col-lg-3 col-6">
                 <div class="life-card">
-                    <img src="./pics/Life-at-rooh/building.jpeg" alt="Hospital Location" class="life-img">
+                    <img src="./pics/Life-at-rooh/exha.jpeg" alt="Hospital Location" class="life-img">
                     <div class="life-overlay">
-                        <h4>Rooh Campus</h4>
+                        <h4>Exercise Hall</h4>
                         <p>Peaceful Location</p>
                     </div>
                 </div>
@@ -1602,9 +1554,9 @@ h5.text-white::after {
             <!-- 3. Counter / Reception -->
             <div class="col-lg-3 col-6">
                 <div class="life-card">
-                    <img src="./pics/Life-at-rooh/officee.jpeg" alt="Reception" class="life-img">
+                    <img src="./pics/Life-at-rooh/str.jpeg" alt="Reception" class="life-img">
                     <div class="life-overlay">
-                        <h4>Main Office</h4>
+                        <h4>Baranda</h4>
                         <p>Professional Management Hub</p>
                     </div>
                 </div>
@@ -1640,9 +1592,11 @@ h5.text-white::after {
                     <!-- 6. Interior -->
                     <div class="col-lg-3 col-6">
                         <div class="life-card">
-                            <img src="./pics/Life-at-rooh/room.jpeg" alt="Interior" class="life-img">
+                            <img src="./pics/Life-at-rooh/tar.jpeg" alt="Interior" class="life-img">
                             <div class="life-overlay">
-                                <h4>Patient Room</h4>
+                                <h4>
+                                    
+                                </h4>
                                 <p>Healing Environment</p>
                             </div>
                         </div>
@@ -1785,9 +1739,11 @@ h5.text-white::after {
                     Rooh Rehabilitation Center is dedicated to providing compassionate care for addiction recovery and mental health, helping individuals rebuild their lives with dignity and hope.
                 </p>
                 <div class="social-links mt-3">
-                    <a href="https://www.facebook.com/roohrehabilitationcenter?rdid=zSNcEs4xJ7sOqZbl&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F17PCzaznRz%2F%3Futm_source%3Dig%26utm_medium%3Dsocial%26utm_content%3Dlink_in_bio#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                    <a href=" https://www.facebook.com/share/14eEUy5AWsA/" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
                     
-                    <a href="https://www.instagram.com/roohrehabilitationcenter/" class="text-white"><i class="fab fa-instagram"></i></a>
+                    <a href=" https://www.instagram.com/roohrehabilitationcenter?igsh=MWN0d2NiaGdkbG5qdg==" class="text-white me-3"><i class="fab fa-instagram "></i></a>
+                    <a href="https://www.tiktok.com/@roohrehabilitationcenter?_r=1&_t=ZS-94DhbyNnaDs " class="text-white me-3"><i class="fab fa-tiktok "></i></a>
+                    <a href=" https://www.linkedin.com/company/rooh-rehabilitation-center/ " class="text-white me-3"><i class="fab fa-linkedin "></i></a>
                 </div>
             </div>
 
@@ -1841,6 +1797,140 @@ h5.text-white::after {
         </div>
     </div>
 </footer>
+
+
+<!--popoverr-->
+<div id="bookingPopover" class="popover-overlay">
+    <div class="popover-box">
+        <span id="closePopover" class="close-btn">&times;</span>
+        <h3 style="color: var(--primary); margin-bottom: 20px; font-size: 22px;">Call to Book</h3>
+        <div class="phone-list">
+            <a href="tel:03143217672">📞 0314-3217672</a>
+            <a href="tel:03393217672">📞 0339-3217672</a>
+            <a href="tel:03051257672">📞 0305-1257672</a>
+            <a  href="#"><i class="fas fa-envelope me-2 text-primary"></i> roohrehab@gmail.com</a>
+        </div>
+    </div>
+</div>
+<style>
+    /* Popover Overlay (Background Blur) */
+.popover-overlay {
+    display: none; /* By default chupa hua hai */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85); /* Dark blur effect */
+    backdrop-filter: blur(4px);
+    z-index: 9999; /* Nav ke bhi upar aye ga */
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font);
+}
+
+/* Popover Box (The Modal) */
+.popover-box {
+    background-color: var(--healing);
+    border: 2px solid var(--primary);
+    border-radius: 15px;
+    width: 90%;
+    max-width: 350px; /* Mobile pe set rahay ga */
+    padding: 30px;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    animation: popIn 0.3s ease-out;
+}
+
+@keyframes popIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Close Cross (X) */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    color: var(--accent);
+    cursor: pointer;
+    transition: color 0.3s;
+    line-height: 1;
+}
+
+.close-btn:hover {
+    color: var(--primary);
+}
+
+/* Phone Numbers Buttons */
+.phone-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.phone-list a {
+    background-color: var(--light);
+    color: var(--accent);
+    text-decoration: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.phone-list a:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background-color: var(--dark);
+}
+</style>
+<script>
+    // Dono buttons ko select karein
+const navBtn = document.getElementById("myBookBtn"); // Nav wala button
+const heroBtn = document.getElementById("heroBookBtn"); // Hero wala button (Aapne jo naya btn diya)
+
+const popoverOverlay = document.getElementById("bookingPopover");
+const closeBtn = document.getElementById("closePopover");
+
+// Function jo popover open karega
+const openPopover = () => {
+    popoverOverlay.style.display = "flex";
+};
+
+// Nav button trigger
+if(navBtn) {
+    navBtn.addEventListener("click", openPopover);
+}
+
+// Hero button trigger
+if(heroBtn) {
+    heroBtn.addEventListener("click", (e) => {
+        e.preventDefault(); // Agar link hai to page jump na kare
+        openPopover();
+    });
+}
+
+// Cross (X) pe click ho to band kar do
+if(closeBtn) {
+    closeBtn.addEventListener("click", () => {
+        popoverOverlay.style.display = "none";
+    });
+}
+
+// Box k bahar click ho to band kar do
+window.addEventListener("click", (e) => {
+    if (e.target === popoverOverlay) {
+        popoverOverlay.style.display = "none";
+    }
+});
+</script>
+
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

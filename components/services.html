@@ -3,290 +3,331 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Services - Sukoon Rehabilitation</title>
-    
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="icon" type="image/png" href="../images/logoo.png">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <!-- AOS Animation -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="style.css">
-
+    <title>Services | Psychological & Addiction Treatment</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* --- PAGE SPECIFIC STYLES --- */
-        
-        /* 1. Header Section */
-        .serv-header {
-            /* Medical/Clean Background Image */
-            background: linear-gradient(to bottom, rgba(17, 17, 58, 0.85), rgba(17, 17, 58, 0.95)), 
-                        url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=1920&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            height: 50vh;
-            min-height: 350px;
+        :root {
+            --primary: rgb(195, 146, 22);      
+            --accent: #FFFFFF;       
+            --healing: #1A1A1A;      
+            --dark: #000000;         
+            --light: #222222;        
+            --font: 'Poppins', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: var(--font);
+        }
+
+        body {
+            background-color: var(--dark);
+            color: var(--accent);
+            line-height: 1.6;
+        }
+
+        /* --- NAVIGATION --- */
+         .navbar {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            position: relative;
-            margin-bottom: 80px;
+            padding: 15px 8%;
+            background-color: rgba(0,0,0,0.95);
+            border-bottom: 1px solid var(--light);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
         }
 
-        .serv-header h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-            text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        .navbar .logo img {
+            max-height: 55px;
+            filter: drop-shadow(0 0 5px rgba(195, 146, 22, 0.3));
         }
 
-        .serv-header p {
-            font-size: 1.1rem;
-            font-weight: 300;
-            opacity: 0.9;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .header-badge {
-            background-color: white;
-            color: rgb(17, 17, 58);
-            padding: 8px 20px;
+        .home-btn {
+            color: var(--primary);
+            text-decoration: none;
+            padding: 8px 25px;
+            border: 1px solid var(--primary);
             border-radius: 50px;
-            font-weight: 700;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-            display: inline-block;
-            margin-bottom: 20px;
+            font-weight: 500;
+            transition: 0.4s ease;
+            text-transform: uppercase;
+            font-size: 14px;
         }
 
-        /* 2. Services Grid */
-        .services-page-section {
-            padding-bottom: 100px;
-            background-color: #fff;
+        .home-btn:hover {
+            background-color: var(--primary);
+            color: black;
+            box-shadow: 0 0 15px rgba(195, 146, 22, 0.4);
+        }
+        /* --- MARQUEE SECTION --- */
+        .marquee-container {
+            background: var(--light);
+            padding: 10px 0;
+            border-bottom: 2px solid var(--primary);
         }
 
-        /* --- CARD STYLING (Icons Only) --- */
-        .service-box {
-            background: #fff;
-            border-radius: 15px;
-            padding: 40px 25px;
+        marquee {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* --- SECTION HEADERS --- */
+        .section-title {
             text-align: center;
-            border: 1px solid #eee;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-            height: 100%;
+            padding: 50px 20px 20px;
+            font-size: 2.5rem;
+            color: var(--primary);
+            text-transform: uppercase;
+        }
+
+        .sub-desc {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            padding: 0 20px;
+            color: #ccc;
+        }
+
+        /* --- GRID SYSTEM --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        /* --- CARDS --- */
+        .card {
+            background: var(--healing);
+            border: 1px solid #333;
+            padding: 30px;
+            border-radius: 12px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
             display: flex;
             flex-direction: column;
-            align-items: center;
         }
 
-        /* Icon Box */
-        .serv-icon {
-            width: 80px;
-            height: 80px;
-            background: rgba(17, 17, 58, 0.05);
-            color: rgb(17, 17, 58);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 30px;
-            margin-bottom: 25px;
-            transition: 0.3s;
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
         }
 
-        /* Hover Effects */
-        .service-box:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(17, 17, 58, 0.15);
-            border-color: rgb(17, 17, 58);
-        }
-
-        .service-box:hover .serv-icon {
-            background: rgb(17, 17, 58);
-            color: white;
-        }
-
-        /* Text */
-        .service-box h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: rgb(17, 17, 58);
+        .card h3 {
+            color: var(--primary);
             margin-bottom: 15px;
-            text-transform: uppercase;
+            font-size: 1.4rem;
+            border-bottom: 1px solid var(--light);
+            padding-bottom: 10px;
         }
 
-        .service-box p {
-            color: #666;
-            font-size: 0.9rem;
-            line-height: 1.6;
-            margin-bottom: 25px;
-            flex-grow: 1;
+        .card ul {
+            list-style: none;
         }
 
-        /* Button */
-        .btn-get-service {
-            background: transparent;
-            color: rgb(17, 17, 58);
-            border: 1px solid rgb(17, 17, 58);
-            padding: 8px 25px;
-            border-radius: 50px;
-            font-size: 12px;
-            font-weight: 700;
-            text-decoration: none;
-            transition: 0.3s;
-            text-transform: uppercase;
+        .card ul li {
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: 20px;
         }
 
-        .btn-get-service:hover {
-            background: rgb(17, 17, 58);
-            color: white;
+        .card ul li::before {
+            content: '•';
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
         }
 
-        /* --- RESPONSIVE --- */
-        
-        /* Laptop: 3 Cards Row */
-        @media (min-width: 992px) {
-            .container { max-width: 1200px; }
-            .col-lg-4 { width: 33.3333%; }
+        /* Special Styling for nested lists */
+        .category-label {
+            display: block;
+            font-weight: bold;
+            color: var(--primary);
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-size: 1rem;
         }
 
-        /* Mobile: 2 Cards Grid */
+        /* --- RESPONSIVE SETTINGS --- */
         @media (max-width: 768px) {
-            .serv-header h1 { font-size: 2rem; }
-            .serv-header { height: 40vh; min-height: 300px; }
+            .container {
+                grid-template-columns: repeat(2, 1fr); /* 2x2 Grid for Mobile as requested */
+                gap: 10px;
+                padding: 10px;
+            }
+            .card {
+                padding: 15px;
+            }
+            .card h3 {
+                font-size: 1.1rem;
+            }
+            .card ul li {
+                font-size: 0.8rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
 
-            .row.g-4 {
-                --bs-gutter-x: 10px; 
-                --bs-gutter-y: 15px;
+        @media (max-width: 480px) {
+            /* Small mobile adjustment if text overflows */
+            .container {
+                grid-template-columns: repeat(2, 1fr);
             }
-            
-            .col-6 {
-                width: 50%;
-                padding: 0 5px;
-            }
-            
-            .service-box {
-                padding: 20px 10px;
-                border-radius: 10px;
-            }
-
-            .serv-icon {
-                width: 50px; height: 50px; font-size: 20px; margin-bottom: 15px;
-            }
-            
-            .service-box h3 { font-size: 0.85rem; margin-bottom: 8px; }
-            .service-box p { font-size: 0.7rem; margin-bottom: 15px; line-height: 1.4; }
-            
-            .btn-get-service { font-size: 9px; padding: 5px 15px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- HEADER -->
-    <header class="serv-header">
-        <div class="container" data-aos="fade-up">
-            <span class="header-badge">CLINICAL EXCELLENCE</span>
-            <h1 class="display-4 fw-bold">Our Treatment Programs</h1>
-            <p class="lead mt-3 text-light opacity-75">Comprehensive care for mind, body, and soul.</p>
+   <nav class="navbar">
+        <div class="logo">
+            <img src="../pics/logoo.png" alt="Rooh Logo">
         </div>
-    </header>
+        <a href="../index.html" class="home-btn">Back to Home</a>
+    </nav>
 
-    <!-- SERVICES GRID -->
-    <section class="services-page-section">
-        <div class="container">
-            
-            <!-- Grid Row (Desktop: 3, Mobile: 2) -->
-            <div class="row g-4 row-cols-2 row-cols-md-2 row-cols-lg-3 justify-content-center">
-                
-                <!-- 1. Detox -->
-                <div class="col" data-aos="fade-up" data-aos-delay="100">
-                    <div class="service-box">
-                        <div class="serv-icon"><i class="fa-solid fa-droplet-slash"></i></div>
-                        <h3>Medical Detox</h3>
-                        <p>Safe and monitored withdrawal management under expert supervision.</p>
-                        <a href="contact.html" class="btn-get-service">Get Service</a>
-                    </div>
-                </div>
+    <div class="marquee-container">
+        <marquee behavior="scroll" direction="left">
+            We provide comprehensive assessment, diagnosis, and treatment for a wide range of psychological and psychiatric conditions. | Each client receives an individualized treatment plan tailored to their specific needs.
+        </marquee>
+    </div>
 
-                <!-- 2. Rehab -->
-                <div class="col" data-aos="fade-up" data-aos-delay="200">
-                    <div class="service-box">
-                        <div class="serv-icon"><i class="fa-solid fa-hand-holding-medical"></i></div>
-                        <h3>Addiction Rehab</h3>
-                        <p>Complete recovery programs from drugs and alcohol dependency.</p>
-                        <a href="contact.html" class="btn-get-service">Get Service</a>
-                    </div>
-                </div>
-
-                <!-- 3. Psychiatry -->
-                <div class="col" data-aos="fade-up" data-aos-delay="300">
-                    <div class="service-box">
-                        <div class="serv-icon"><i class="fa-solid fa-brain"></i></div>
-                        <h3>Psychiatric Care</h3>
-                        <p>Clinical treatment for depression, anxiety, trauma and disorders.</p>
-                        <a href="contact.html" class="btn-get-service">Get Service</a>
-                    </div>
-                </div>
-
-                <!-- 4. Family Therapy -->
-                <div class="col" data-aos="fade-up" data-aos-delay="400">
-                    <div class="service-box">
-                        <div class="serv-icon"><i class="fa-solid fa-users-rays"></i></div>
-                        <h3>Family Therapy</h3>
-                        <p>Healing relationships and building a strong support system.</p>
-                        <a href="contact.html" class="btn-get-service">Get Service</a>
-                    </div>
-                </div>
-
-                <!-- 5. 12-Step -->
-                <div class="col" data-aos="fade-up" data-aos-delay="500">
-                    <div class="service-box">
-                        <div class="serv-icon"><i class="fa-solid fa-stairs"></i></div>
-                        <h3>12-Step Program</h3>
-                        <p>Spiritual and structured path to long-term recovery.</p>
-                        <a href="contact.html" class="btn-get-service">Get Service</a>
-                    </div>
-                </div>
-
-                <!-- 6. Inpatient -->
-                <div class="col" data-aos="fade-up" data-aos-delay="600">
-                    <div class="service-box">
-                        <div class="serv-icon"><i class="fa-solid fa-bed-pulse"></i></div>
-                        <h3>Inpatient Care</h3>
-                        <p>Residential treatment with 24/7 medical and emotional support.</p>
-                        <a href="contact.html" class="btn-get-service">Get Service</a>
-                    </div>
-                </div>
-
-                <!-- 7. Outpatient -->
-                <div class="col" data-aos="fade-up" data-aos-delay="700">
-                    <div class="service-box">
-                        <div class="serv-icon"><i class="fa-solid fa-notes-medical"></i></div>
-                        <h3>Outpatient Care</h3>
-                        <p>Flexible treatment options while living at home.</p>
-                        <a href="contact.html" class="btn-get-service">Get Service</a>
-                    </div>
-                </div>
-
-            </div>
+    <h2 class="section-title">1. Psychological Services</h2>
+    <p class="sub-desc">Comprehensive assessment, diagnosis, and treatment for a wide range of psychological and psychiatric conditions. Each client receives an individualized treatment plan tailored to their specific needs, ensuring structured, ethical, and compassionate care.</p>
+    
+    <div class="container">
+        <div class="card">
+            <h3>Conditions Treated</h3>
+            <ul>
+                <li>Depression</li>
+                <li>Anxiety Disorders</li>
+                <li>Stress and Adjustment Problems</li>
+                <li>Trauma and PTSD</li>
+                <li>Personality-related difficulties</li>
+                <li>Behavioral issues</li>
+                <li>Emotional regulation problems</li>
+                <li>Psychosis</li>
+                <li>Schizophrenia</li>
+                <li>Mood disorders</li>
+                <li>Adolescent and adult mental health concerns</li>
+            </ul>
         </div>
-    </section>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <div class="card">
+            <h3>Our Services</h3>
+            <ul>
+                <li>Detailed psychological assessment</li>
+                <li>Individual psychotherapy</li>
+                <li>Cognitive Behavioral Therapy (CBT)</li>
+                <li>Supportive therapy</li>
+                <li>Family counseling</li>
+                <li>Psychoeducation</li>
+                <li>Crisis intervention (when required)</li>
+            </ul>
+        </div>
+    </div>
+
+    <h2 class="section-title">2. Addiction Treatment</h2>
+    <p class="sub-desc">We offer structured and comprehensive treatment programs for both substance-related (chemical) and behavioral (non-chemical) addictions.</p>
+
+    <div class="container">
+        <div class="card">
+            <h3>Chemical Addictions (I)</h3>
+            <span class="category-label">Opioids:</span>
+            <ul>
+                <li>Heroin</li>
+                <li>Opium</li>
+                <li>Morphine</li>
+                <li>Codeine</li>
+                <li>Tramadol</li>
+                <li>Fentanyl</li>
+                <li>Oxycodone</li>
+                <li>Methadone (misuse)</li>
+            </ul>
+            <span class="category-label">Alcohol:</span>
+            <ul>
+                <li>All forms of alcohol dependence</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Chemical Addictions (II)</h3>
+            <span class="category-label">Cannabis & Related:</span>
+            <ul>
+                <li>Marijuana</li>
+                <li>Hashish</li>
+                <li>Synthetic cannabinoids</li>
+            </ul>
+            <span class="category-label">Stimulants:</span>
+            <ul>
+                <li>Cocaine</li>
+                <li>Crack cocaine</li>
+                <li>Amphetamines</li>
+                <li>Methamphetamine (Ice)</li>
+                <li>MDMA (Ecstasy)</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Chemical Addictions (III)</h3>
+            <span class="category-label">Sedatives & Depressants:</span>
+            <ul>
+                <li>Benzodiazepines</li>
+                <li>Sleeping pills (Z-drugs)</li>
+                <li>Barbiturates</li>
+            </ul>
+            <span class="category-label">Hallucinogens & Inhalants:</span>
+            <ul>
+                <li>LSD / Psilocybin / Ketamine</li>
+                <li>Glue / Petrol / Paint thinners</li>
+                <li>Nitrous oxide</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Non-Chemical Addictions</h3>
+            <ul>
+                <li>Internet addiction</li>
+                <li>Gaming addiction</li>
+                <li>Gambling addiction</li>
+                <li>Pornography addiction</li>
+                <li>Social media addiction</li>
+                <li>Shopping addiction</li>
+                <li>Food-related compulsive behaviors</li>
+            </ul>
+            <p style="font-size: 0.8rem; margin-top: 15px; color: #888;">Focus: Identifying triggers, restructuring patterns & long-term recovery.</p>
+        </div>
+
+        <div class="card">
+            <h3>Treatment Includes</h3>
+            <ul>
+                <li>Medical detoxification (when required)</li>
+                <li>Inpatient rehabilitation</li>
+                <li>Individual and group therapy</li>
+                <li>Relapse prevention planning</li>
+                <li>Family counseling</li>
+                <li>Aftercare and follow-up programs</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer style="text-align: center; padding: 40px; color: #555; border-top: 1px solid var(--light);">
+        &copy; 2026 Psychological & Addiction Services. All Rights Reserved.
+    </footer>
+
     <script>
-        AOS.init({ once: true, offset: 50 });
+        // Smooth scroll or any interactivity can be added here
+        console.log("Services page loaded successfully.");
     </script>
 </body>
 </html>

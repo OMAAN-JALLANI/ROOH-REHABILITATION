@@ -3,232 +3,272 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - CodedClouds</title>
-     <link rel="icon" type="image/png" href="../images/logoo.png">
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- AOS Animation -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="style.css">
+    <title>About Us | Rooh Rehabilitation</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <style>
-        /* --- ABOUT PAGE STYLES --- */
-        
-        /* Header (Cover) */
-        .about-header {
-            background: linear-gradient(rgba(17, 17, 58, 0.85), rgba(17, 17, 58, 0.4)), url('../images/cover.jpg');
+        :root {
+            --primary: rgb(195, 146, 22);      
+            --accent: #FFFFFF;       
+            --healing: #111111;      
+            --dark: #000000;         
+            --light: #222222;        
+            --font: 'Poppins', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font);
+            background-color: var(--dark);
+            color: var(--accent);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- NAVIGATION --- */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+            background-color: rgba(0,0,0,0.95);
+            border-bottom: 1px solid var(--light);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar .logo img {
+            max-height: 55px;
+            filter: drop-shadow(0 0 5px rgba(195, 146, 22, 0.3));
+        }
+
+        .home-btn {
+            color: var(--primary);
+            text-decoration: none;
+            padding: 8px 25px;
+            border: 1px solid var(--primary);
+            border-radius: 50px;
+            font-weight: 500;
+            transition: 0.4s ease;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        .home-btn:hover {
+            background-color: var(--primary);
+            color: black;
+            box-shadow: 0 0 15px rgba(195, 146, 22, 0.4);
+        }
+
+        /* --- HERO SECTION (FIXED) --- */
+        .hero-cover {
+            position: relative;
+            height: 65vh; 
+            min-height: 400px;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9)), 
+                        url('../pics/Life-at-rooh/office.jpeg');
             background-size: cover;
             background-position: center;
-            height: 50vh;
-            min-height: 400px;
+            background-attachment: fixed; /* Parallax Effect */
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            color: white;
-            position: relative;
-            margin-bottom: 80px;
+            margin-top: 80px;
+            border-bottom: 2px solid var(--primary);
         }
 
-        /* Back Button */
-        .btn-back-home {
-            position: absolute;
-            top: 30px; left: 30px;
-            text-decoration: none;
-            color: white;
-            font-weight: 600;
-            border: 1px solid rgba(255,255,255,0.3);
-            padding: 10px 20px;
-            border-radius: 50px;
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(5px);
-            transition: 0.3s;
-            font-size: 14px;
-        }
-        .btn-back-home:hover { background: white; color: rgb(17, 17, 58); }
-
-        /* Content Sections */
-        .story-section { padding-bottom: 100px; }
-        
-        .story-heading {
-            font-size: 2rem;
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 5px;
             font-weight: 800;
-            color: rgb(17, 17, 58);
-            margin-bottom: 20px;
-            position: relative;
-            display: inline-block;
-        }
-        .story-heading::after {
-            content: ''; display: block; width: 60px; height: 4px;
-            background: var(--primary, #0a870e); margin-top: 10px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+            margin: 0;
         }
 
-        .story-text {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            color: #555;
+        /* --- ABOUT CONTENT --- */
+        .about-container {
+            padding: 100px 8%;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .about-text h2 {
+            font-size: 38px;
+            color: var(--primary);
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .about-text h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 60px;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        .about-text p {
+            font-size: 18px;
+            color: #bbb;
             margin-bottom: 20px;
             text-align: justify;
         }
 
-        /* Image Styling (Rounded & Shadow) */
-        .about-img {
+        .about-image {
+            position: relative;
             border-radius: 20px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            border: 1px solid var(--light);
+            padding: 15px;
+            background: var(--healing);
+        }
+
+        .about-image img {
             width: 100%;
-            object-fit: cover;
-            transition: transform 0.3s;
-        }
-        .about-img:hover { transform: scale(1.02); }
-
-        /* Quote Box */
-        .quote-box {
-            background: #f8f9fa;
-            border-left: 5px solid var(--primary, #0a3a87);
-            padding: 30px;
-            margin: 40px 0;
-            border-radius: 0 15px 15px 0;
-        }
-        .quote-box p {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: rgb(17, 17, 58);
-            font-style: italic;
-            margin: 0;
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            transition: 0.5s ease;
         }
 
-        /* Mission Cards */
-        .mission-card {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            text-align: center;
-            border-bottom: 4px solid transparent;
-            transition: 0.3s;
-            height: 100%;
-        }
-        .mission-card:hover {
+        .about-image:hover img {
             transform: translateY(-10px);
-            border-bottom-color: var(--primary, #0a3a87);
-        }
-        .mission-icon {
-            font-size: 2rem;
-            color: var(--primary, #0a3a87);
-            margin-bottom: 15px;
+            filter: brightness(1.1);
         }
 
-        /* Mobile */
-        @media (max-width: 768px) {
-            .about-header h1 { font-size: 2.2rem; }
-            .btn-back-home { top: 20px; left: 20px; padding: 8px 15px; }
+        /* --- VISION & MISSION CARDS --- */
+        .cards-section {
+            padding: 0 8% 100px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .info-card {
+            background: var(--healing);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid #222;
+            text-align: center;
+            transition: 0.4s;
+        }
+
+        .info-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(195, 146, 22, 0.1);
+        }
+
+        .info-card i {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .info-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-card p {
+            font-size: 16px;
+            color: #ddd;
+            font-style: italic;
+        }
+
+        /* --- MOBILE VIEW --- */
+        @media (max-width: 992px) {
+            .about-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 60px 5%;
+            }
+            .about-text h2::after { left: 50%; transform: translateX(-50%); }
+            .hero-cover { height: 45vh; background-attachment: scroll; }
+            
+            .cards-section {
+                grid-template-columns: repeat(2, 1fr); /* 2x2 grid for mobile as requested */
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .cards-section {
+                grid-template-columns: 1fr; /* Single col for very small screens */
+            }
+            .hero-content h1 { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- HEADER / COVER -->
-    <header class="about-header">
-        <a href="../index.html" class="btn-back-home">
-            <i class="fa-solid fa-arrow-left me-2"></i> Back to Home
-        </a>
-        <div class="container" data-aos="fade-up">
-            <span class="badge bg-success px-3 py-2 mb-3 rounded-pill fw-bold shadow-sm">OUR JOURNEY</span>
-            <h1 class="display-4 fw-bold">Why We Started</h1>
-            <p class="lead mt-3 text-light opacity-75">From a frustration to a revolution.</p>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="../pics/logoo.png" alt="Rooh Logo">
+        </div>
+        <a href="../index.html" class="home-btn">Back to Home</a>
+    </nav>
+
+    <header class="hero-cover">
+        <div class="hero-content">
+            <h1>About Us</h1>
         </div>
     </header>
 
-    <!-- STORY CONTENT -->
-   <section class="story-section">
-        <div class="container">
-            
-            <!-- PART 1: THE PROBLEM (Image Left) -->
-            <div class="row align-items-center mb-5">
-                <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
-                    <!-- Image 1 (Patient/Doctor) -->
-                    <img src="../images/ab1.jpg" alt="Consultation" class="about-img" style="height: 400px; object-fit: cover;">
-                </div>
-                <div class="col-lg-6 ps-lg-5" data-aos="fade-left">
-                    <h2 class="story-heading">More Than Just Treatment</h2>
-                    <p class="story-text">
-                        Five years ago, Sakoon Rehabilitation didn’t start as a business it started as a necessity. We saw families tearing apart, promising youth fading away, and parents losing hope because of addiction. The existing centers felt like prisons, not places of healing.
-                    </p>
-                    <p class="story-text">
-                        We realized that addiction isn't a crime; it's a disease that needs compassion, not punishment. We started with a simple vision: to create a <strong>sanctuary</strong> where patients are treated with dignity, love, and world-class medical care.
-                    </p>
-                </div>
-            </div>
-
-            <!-- QUOTE BLOCK -->
-            <div class="row justify-content-center" data-aos="zoom-in">
-                <div class="col-lg-10">
-                    <div class="quote-box">
-                        <i class="fa-solid fa-quote-left text-success fs-3 mb-3"></i>
-                        <p>“Recovery isn’t just about stopping drugs; it’s about creating a new life where it is easier to not use. We don't just detox the body; we rebuild the soul.”</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PART 2: THE SOLUTION (Image Right) -->
-            <div class="row align-items-center mb-5 mt-5">
-                <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0" data-aos="fade-left">
-                    <!-- Image 2 (Group Therapy/Support) -->
-                    <img src="../images/ab.jpg" alt="Group Therapy" class="about-img" style="height: 400px; object-fit: cover;">
-                </div>
-                <div class="col-lg-6 order-lg-1 pe-lg-5" data-aos="fade-right">
-                    <h2 class="story-heading">A Safe Haven for Recovery</h2>
-                    <p class="story-text">
-                        So we built Sakoon. Not to chase profits, but to save lives. Our approach combines modern psychiatry with holistic healing. From Detoxification to Psychotherapy, we ensure that every patient gets a personalized roadmap to sobriety.
-                    </p>
-                    <p class="story-text">
-                        Every recovered patient is a victory for us. Every reunited family is our profit. We are dedicated to wiping out the stigma of addiction and proving that with the right support, <strong>anyone can start over.</strong>
-                    </p>
-                </div>
-            </div>
-
-            <!-- PART 3: THE MISSION (Cards) -->
-            <div class="row g-4 mt-5">
-                <div class="col-12 text-center mb-4">
-                    <h2 class="fw-bold text-dark">Our Mission</h2>
-                </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="mission-card">
-                        <i class="fa-solid fa-heart-pulse mission-icon"></i>
-                        <h5>Compassionate Care</h5>
-                        <p class="text-muted small">Treating every patient with respect, love, and professional medical attention.</p>
-                    </div>
-                </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="mission-card">
-                        <i class="fa-solid fa-spa mission-icon"></i>
-                        <h5>Holistic Healing</h5>
-                        <p class="text-muted small">Focusing on physical detox, mental health, and spiritual growth together.</p>
-                    </div>
-                </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="mission-card">
-                        <i class="fa-solid fa-hands-holding-child mission-icon"></i>
-                        <h5>Lifelong Support</h5>
-                        <p class="text-muted small">We don't leave you after discharge; our aftercare ensures you stay on track.</p>
-                    </div>
-                </div>
-            </div>
-
+    <section class="about-container">
+        <div class="about-text">
+            <h2>Who We Are</h2>
+            <p>Rooh Rehabilitation Center is a dedicated mental health and addiction treatment facility located in Sargodha, committed to restoring hope, healing lives, and rebuilding families.</p>
+            <p>Founded with a vision to provide compassionate, ethical, and evidence-based care, Rooh Rehabilitation Center serves individuals struggling with substance use disorders, psychological distress, and behavioral challenges.</p>
+        </div>
+        <div class="about-image">
+            <img src="../pics/CEO-2.png" alt="CEO Rooh Rehab">
         </div>
     </section>
 
-    <!-- FOOTER (Simple) -->
-    <footer class="bg-dark text-white text-center py-4">
-        <p class="m-0">&copy; 2025 sakoonrehab. All Rights Reserved.</p>
+    <section class="cards-section">
+        <div class="info-card">
+            <i class="fa-solid fa-eye"></i>
+            <h3>Our Vision</h3>
+            <p>"To create a society where individuals battling addiction are treated with dignity, respect, and professional care—empowering them to live healthy lives."</p>
+        </div>
+
+        <div class="info-card">
+            <i class="fa-solid fa-bullseye"></i>
+            <h3>Our Mission</h3>
+            <p>To provide high-quality, structured, and compassionate rehabilitation services through evidence-based therapies and expert medical supervision.</p>
+        </div>
+
+        <div class="info-card">
+            <i class="fa-solid fa-heart-pulse"></i>
+            <h3>Our Values</h3>
+            <p>Empathy, Confidentiality, Excellence, and Integrity. Every patient is a soul (Rooh) that deserves a second chance at life.</p>
+        </div>
+    </section>
+
+    <footer style="text-align: center; padding: 50px; border-top: 1px solid var(--light); color: #555;">
+        &copy; 2026 Rooh Rehabilitation Center. All Rights Reserved.
     </footer>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script> AOS.init({ once: true }); </script>
 </body>
 </html>
